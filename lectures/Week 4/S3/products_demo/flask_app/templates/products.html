@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-primary">
+            <div class="container">
+                <ul class="nav list-unstyled">
+                    <li class="nav-item"><a class="nav-link text-white" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/add-product">Add Product</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/products">Products</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        {%for product in products%}
+        <tbody>
+            <tr>
+                <td>{{product.id}}</td>
+                <td><a href="/products/{{product_id}}">{{product.name}}</a></td>
+                <td>{{product.price}}</td>
+                <td>{{product.category_id}}</td>
+                <td>
+                    <a href="/products/{{product_id}}/delete">Delete</a>
+                    <span>|</span>
+                    <a href="/products/{{product_id}}/edit">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+        {%endfor%}
+    </table>
+</body>
+</html>
